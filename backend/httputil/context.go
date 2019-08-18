@@ -2,9 +2,8 @@ package httputil
 
 import (
 	"context"
-
+	"github.com/YoshijiFujiwara/u22/backend/model"
 	"github.com/pkg/errors"
-	"github.com/voyagegroup/treasure-app/model"
 )
 
 type contextKey string

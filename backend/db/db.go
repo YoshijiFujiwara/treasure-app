@@ -6,15 +6,15 @@ import (
 )
 
 type DB struct {
-	datasource string
+	dataSource string
 }
 
-func NewDB(datasource string) *DB {
+func NewDB(dataSource string) *DB {
 	return &DB{
-		datasource: datasource,
+		dataSource: dataSource,
 	}
 }
 
 func (db *DB) Open() (*sqlx.DB, error) {
-	return sqlx.Open("mysql", db.datasource)
+	return sqlx.Open("mysql", db.dataSource)
 }

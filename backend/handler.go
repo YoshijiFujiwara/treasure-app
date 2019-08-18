@@ -1,16 +1,17 @@
-package server
+package backend
 
 import (
 	"encoding/json"
+	"github.com/YoshijiFujiwara/u22/backend/httputil"
+
 	"log"
 	"net/http"
-
-	"github.com/voyagegroup/treasure-app/httputil"
 )
 
 type AppHandler struct {
 	h func(http.ResponseWriter, *http.Request) (int, interface{}, error)
 }
+
 
 func (a AppHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	status, res, err := a.h(w, r)
@@ -45,3 +46,4 @@ func respondErrorJson(w http.ResponseWriter, code int, err error) {
 		respondJSON(w, code, he)
 	}
 }
+

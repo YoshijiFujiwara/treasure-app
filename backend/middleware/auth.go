@@ -1,93 +1,68 @@
 package middleware
 
 import (
-	"errors"
-	"log"
+	"fmt"
+	"github.com/YoshijiFujiwara/u22/backend/httputil"
+	"github.com/YoshijiFujiwara/u22/backend/repository"
+	"github.com/dgrijalva/jwt-go"
+	"github.com/jinzhu/gorm"
 	"net/http"
-
-	"firebase.google.com/go/auth"
-	"github.com/jmoiron/sqlx"
-	"github.com/voyagegroup/treasure-app/httputil"
-	"github.com/voyagegroup/treasure-app/model"
-	"github.com/voyagegroup/treasure-app/repository"
-)
-
-const (
-	bearer = "Bearer"
+	"os"
+	"strings"
 )
 
 type Auth struct {
-	client *auth.Client
-	db     *sqlx.DB
+	db     *gorm.DB
 }
 
-func NewAuth(client *auth.Client, db *sqlx.DB) *Auth {
+func NewAuth(db *gorm.DB) *Auth {
 	return &Auth{
-		client: client,
 		db:     db,
 	}
 }
 
-func (auth *Auth) Handler(next http.Handler) http.Handler {
+func (auth *Auth)Handler(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		idToken, err := getTokenFromHeader(r)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
-		token, err := auth.client.VerifyIDToken(r.Context(), idToken)
-		if err != nil {
-			log.Print(err.Error())
-			http.Error(w, "Failed to verify token", http.StatusForbidden)
-			return
-		}
-		userRecord, err := auth.client.GetUser(r.Context(), token.UID)
+		// authorizationヘッダーから、トークンを取得する
+		fmt.Println("auth middleware invoked")
 
-		if err != nil {
-			log.Print(err.Error())
-			http.Error(w, "Failed to get userRecord", http.StatusInternalServerError)
+		authHeader := r.Header.Get("Authorization")
+		bearerToken := strings.Split(authHeader, " ")
+
+		if len(bearerToken) != 2 {
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
 
-		firebaseUser := toFirebaseUser(userRecord)
-		_, syncErr := repository.SyncUser(auth.db, &firebaseUser)
-		if syncErr != nil {
-			log.Print(syncErr.Error())
-			http.Error(w, "Failed to sync user", http.StatusInternalServerError)
-			return
-		}
+		authToken := bearerToken[len(bearerToken) - 1]
+		token, err := jwt.Parse(authToken, func(token *jwt.Token) (interface{}, error) {
+			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+				return nil, fmt.Errorf("jwt parse error")
+			}
+			return []byte(os.Getenv("JWT_SECRET")), nil
+		})
 
-		user, err := repository.GetUser(auth.db, firebaseUser.FirebaseUID)
 		if err != nil {
-			log.Print(err.Error())
-			http.Error(w, "Failed to get user", http.StatusInternalServerError)
+			fmt.Println("token parse error")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
 
+		claims, ok := token.Claims.(jwt.MapClaims)
+		if !ok || !token.Valid {
+			fmt.Println("token is invalid")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
+
+		email := claims["email"].(string)
+		// dbからユーザーを検索する
+		user := repository.UserFindByEmail(auth.db, email)
+		fmt.Println("user")
+		fmt.Println(user)
+		// ユーザー情報をコンテキストに格納する
 		ctx := httputil.SetUserToContext(r.Context(), user)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
-func getTokenFromHeader(req *http.Request) (string, error) {
-	header := req.Header.Get("Authorization")
-	if header == "" {
-		return "", errors.New("authorization header not found")
-	}
-
-	l := len(bearer)
-	if len(header) > l+1 && header[:l] == bearer {
-		return header[l+1:], nil
-	}
-
-	return "", errors.New("authorization header format must be 'Bearer {token}'")
-}
-
-func toFirebaseUser(u *auth.UserRecord) model.FirebaseUser {
-	return model.FirebaseUser{
-		FirebaseUID: u.UID,
-		Email:       u.Email,
-		PhotoURL:    u.PhotoURL,
-		DisplayName: u.DisplayName,
-	}
-}

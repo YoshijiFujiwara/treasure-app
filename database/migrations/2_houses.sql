@@ -1,0 +1,17 @@
+-- +goose Up
+CREATE TABLE houses (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `houses` (`id`, `name`) VALUES
+(1, '田中'),
+(2, '山田'),
+(3, '花畑'),
+(4, '桜');
+
+-- +goose Down
+DROP TABLE houses;

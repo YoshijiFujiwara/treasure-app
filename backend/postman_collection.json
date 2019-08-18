@@ -1,0 +1,863 @@
+{
+	"variables": [],
+	"info": {
+		"name": "u22",
+		"_postman_id": "3ae31065-3837-5c84-45fb-4a8c937b25ed",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:1992/api/v1/users",
+			"request": {
+				"url": "http://localhost:1992/api/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0MWU3OWQzZjUwOWUyYzdhNjQ1N2ZjOTVmY2U1MGNjOGM3M2VmMDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdHJlYXN1cmUtZGF5LTIiLCJhdWQiOiJ0cmVhc3VyZS1kYXktMiIsImF1dGhfdGltZSI6MTU2NTc2MjEyNSwidXNlcl9pZCI6ImRlbW8iLCJzdWIiOiJkZW1vIiwiaWF0IjoxNTY1NzYyMTI1LCJleHAiOjE1NjU3NjU3MjUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnt9LCJzaWduX2luX3Byb3ZpZGVyIjoiY3VzdG9tIn19.U91iT1uwefLbhCv0K7XeUYwO1xKZaaKDJNUYTxOhAF3wllZS79SX8owcDzbXAm9B--pONO99YhZ7FYDYQig1pnMieDf9oAX4yu4CpixTqA6dfN9HZAgc-Uo9zjDt0VYiHRRiDGgJjIMsHToAcAt0XJ3GdV6Lv_TPWBp3x8ufyNHde7F8RuXKMR2nnB41VyqEoq3MFibtn2m429SZqqKWjVuZxLsEnjiisPEJOF2KOQjxvyWiQ7T9kHLEP7KElLJBF1u6jH-vwicfnu4ahlSrz0GaRIZfewdkwD-Z2ZaeN1mw2txzPpcU9LDwuIVzSbogL9gu-THNDH3Vz7TUU0lzJw",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"田中太郎です\",\n\t\"email\": \"test@test.com\",\n\t\"password\": \"secret\",\n\t\"gender\": \"man\",\n\t\"birthday\": \"2000-10-11\"\n}"
+				},
+				"description": "ユーザー登録"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/users/login",
+			"request": {
+				"url": "http://localhost:1992/api/v1/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0MWU3OWQzZjUwOWUyYzdhNjQ1N2ZjOTVmY2U1MGNjOGM3M2VmMDMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdHJlYXN1cmUtZGF5LTIiLCJhdWQiOiJ0cmVhc3VyZS1kYXktMiIsImF1dGhfdGltZSI6MTU2NTc2MjEyNSwidXNlcl9pZCI6ImRlbW8iLCJzdWIiOiJkZW1vIiwiaWF0IjoxNTY1NzYyMTI1LCJleHAiOjE1NjU3NjU3MjUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnt9LCJzaWduX2luX3Byb3ZpZGVyIjoiY3VzdG9tIn19.U91iT1uwefLbhCv0K7XeUYwO1xKZaaKDJNUYTxOhAF3wllZS79SX8owcDzbXAm9B--pONO99YhZ7FYDYQig1pnMieDf9oAX4yu4CpixTqA6dfN9HZAgc-Uo9zjDt0VYiHRRiDGgJjIMsHToAcAt0XJ3GdV6Lv_TPWBp3x8ufyNHde7F8RuXKMR2nnB41VyqEoq3MFibtn2m429SZqqKWjVuZxLsEnjiisPEJOF2KOQjxvyWiQ7T9kHLEP7KElLJBF1u6jH-vwicfnu4ahlSrz0GaRIZfewdkwD-Z2ZaeN1mw2txzPpcU9LDwuIVzSbogL9gu-THNDH3Vz7TUU0lzJw",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"user1@hoge.com\",\n\t\"password\": \"secret\"\n}"
+				},
+				"description": "ログインをしたい"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/users/update_me",
+			"request": {
+				"url": "http://localhost:1992/api/v1/users/update_me",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk2MTk0LCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.QLfuw2226e_uPEK6B4dikuA_atUxr7j0yIev3cykOFE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"アップデート太郎\",\n\t\"password\": \"secret\",\n\t\"gender\": \"man\",\n\t\"birthday\": \"2000-10-11\"\n}"
+				},
+				"description": "私は変わります"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/users/delete_me",
+			"request": {
+				"url": "http://localhost:1992/api/v1/users/delete_me",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJleHAiOjE1NjYxOTUyMTAsImlzcyI6InUyMl93aGlzdGxlIn0.2hgKK1AQWRRK5bCkQ_dJnFM1K2xNcWiSKSiikILqCtI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"アップデート太郎\",\n\t\"password\": \"secret\",\n\t\"gender\": \"man\",\n\t\"birthday\": \"2000-10-11\"\n}"
+				},
+				"description": "俺は消えます"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "ハウスを作りたい"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "家の詳細を見せてくれ"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/users/2",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/users/5",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "ハウスにユーザーを追加する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/users/4",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/users/5",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"is_admin\": false\n}"
+				},
+				"description": "ハウスに所属しているそのユーザーの権限を変更する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/users/4",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/users/5",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"is_admin\": true\n}"
+				},
+				"description": "ハウスからユーザーを削除する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "ハウスの中のイベントの一覧を見せてくれ"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"新イベント\"\n}"
+				},
+				"description": "イベントを追加する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "イベントの詳細を見せてくれ"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"アップデートイベントname\"\n}"
+				},
+				"description": "イベントの情報をアップデートする"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"アップデートイベントname\"\n}"
+				},
+				"description": "イベントを削除する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "イベントのアンケート一覧を見せてくれ"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"description": "イベントのアンケートを追加する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "アンケートの詳細"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "アンケートを削除する（アンケート結果とかも削除される）"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "そのアンケートの日付の一覧"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"candidate_datetime\": \"2019-08-18T08:39:35Z\"\n}"
+				},
+				"description": "そのアンケートに日付を追加する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "そのアンケートの一つの日付に対する返答の詳細"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "そのアンケートから、日付の候補を削除する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "そのアンケートの店の一覧を表示する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"shop_id\": \"ホゲホゲショップのID\"\n}"
+				},
+				"description": "そのアンケートに店候補を追加する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "そのアンケートの店に対する返答結果の詳細"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "アンケートから店の候補を削除する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1/answers",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1/answers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": true\n}"
+				},
+				"description": "その日付に対する返答の一覧"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1/answers",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1/answers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": true\n}"
+				},
+				"description": "その日付に対して、返答する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/4/answers/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": false\n}"
+				},
+				"description": "その日付に対する返事を更新する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/dates/1/answers/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": true\n}"
+				},
+				"description": "その日付に対する返答を削除する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1/answers",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1/answers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"スーパー田中家\"\n}"
+				},
+				"description": "その店に対する返答の一覧"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/5/answers",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/5/answers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": true\n}"
+				},
+				"description": "その店候補に対して返答する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/5/answers/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/5/answers/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ok\": false\n}"
+				},
+				"description": "その店候補に対する返答を更新する"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/5/answers/1",
+			"request": {
+				"url": "http://localhost:1992/api/v1/houses/1/events/1/questionnaires/1/shops/1/answers/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGhvZ2UuY29tIiwiZXhwIjoxNTY2MTk3MDAyLCJpc3MiOiJ1MjJfd2hpc3RsZSJ9.jKBUsx3tGx1eLcuSiawzhrx8t48HPceC5rnR_AfkvXc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "その店候補に対する返答を削除する"
+			},
+			"response": []
+		}
+	]
+}

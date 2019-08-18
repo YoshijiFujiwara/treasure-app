@@ -1,27 +1,48 @@
 package repository
 
 import (
-	"database/sql"
-
-	"github.com/jmoiron/sqlx"
-	"github.com/voyagegroup/treasure-app/model"
+	"fmt"
+	"github.com/YoshijiFujiwara/u22/backend/model"
+	"github.com/jinzhu/gorm"
 )
 
-func GetUser(db *sqlx.DB, uid string) (*model.User, error) {
-	var u model.User
-	if err := db.Get(&u, `
-SELECT id, firebase_uid, display_name, email, photo_url FROM user WHERE firebase_uid = ? LIMIT 1
-	`, uid); err != nil {
-		return nil, err
-	}
-	return &u, nil
+func UserAll(db *gorm.DB) (*[]model.User) {
+	users := []model.User{}
+	db.Find(&users)
+	return &users
 }
 
-func SyncUser(db *sqlx.DB, fu *model.FirebaseUser) (sql.Result, error) {
-	return db.Exec(`
-INSERT INTO user (firebase_uid, display_name, email, photo_url)
-VALUES (?, ?, ?, ?)
-ON DUPLICATE KEY
-UPDATE display_name = ?, email = ?, photo_url = ?
-`, fu.FirebaseUID, fu.DisplayName, fu.Email, fu.PhotoURL, fu.DisplayName, fu.Email, fu.PhotoURL)
+func UserFind(db *gorm.DB, id uint) (*model.User) {
+	user := model.User{}
+	db.First(&user)
+	return &user
+}
+
+func UserCreate(db *gorm.DB, user *model.User) (*model.User) {
+	db.Create(&user)
+	return user
+}
+
+func UserUpdate(db *gorm.DB, id uint, user *model.User) (*model.User) {
+	userBefore := model.User{}
+	userBefore.ID = id
+	db.Model(&userBefore).Update(user)
+	fmt.Println("user updated")
+	return user
+}
+
+func UserDelete(db *gorm.DB, id uint) {
+	user := model.User{}
+	user.ID = id
+	db.Delete(&user)
+}
+
+func UserFindByEmail(db *gorm.DB, email string) (*model.User) {
+	user := model.User{}
+	fmt.Println("email")
+	fmt.Println(email)
+	db.Debug().Where("email = ?", email).First(&user)
+	fmt.Println(user)
+	fmt.Println("user info")
+	return &user
 }

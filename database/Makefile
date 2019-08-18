@@ -1,7 +1,8 @@
 export GO111MODULE := off
 
-DBNAME:=treasure_app
-DATASOURCE:=root:password@tcp(127.0.0.1:3306)/$(DBNAME)
+DBROOTPASS:=hogehoge
+DBNAME:=u22
+DATASOURCE:=root:$(DBROOTPASS)@tcp(127.0.0.1:3306)/$(DBNAME)
 
 install:
 	which goose || GO111MODULE=off go get -u github.com/pressly/goose/cmd/goose
@@ -26,5 +27,9 @@ migrate/up:
 
 __migrate/down:
 	@goose -dir migrations mysql "$(DATASOURCE)" down
+
+migrate/refresh:
+	mysql -u root -h localhost --protocol tcp -e "drop database \`$(DBNAME)\`; create database \`$(DBNAME)\`" -p
+	@goose -dir migrations mysql "$(DATASOURCE)" up
 
 init: install docker-compose/up migrate/init migrate/up
